@@ -10,10 +10,10 @@ Some tutorial code is also available in `main.cpp`` to help you understand how t
 
 Certain libraries are required to have CMakeLists.txt work.
 
-In Ubuntu, you just have to install the following:
+In Ubuntu, you just have to install the following packages:
 
 ```bash
-sudo apt install -y cmake llvm libclang-dev libclang-cpp-dev
+sudo apt install -y cmake llvm libclang-dev
 ```
 
 After this, the tool can be built with the following:
