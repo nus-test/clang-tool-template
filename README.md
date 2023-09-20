@@ -4,13 +4,16 @@ This template project is meant to be a tutorial and a quick-setup for anyone who
 
 This template project uses the bare minimum amount of LLVM/Clang code to get your tool up-and-running in as idiomatic of a way as possible. 
 
-Some tutorial code is also available in `main.cpp`` to help you understand how to write an AST matcher, or a transformer.
+Some tutorial code is also available in `main.cpp` to help you understand how to write an AST matcher, or a transformer.
 
 ## Setup
 
-Certain libraries are required to have CMakeLists.txt work.
+Requirements:
+- CMake
+- LLVM 14 or higher
+- Clang 14 developer libraries
 
-In Ubuntu, you just have to install the following packages:
+In Ubuntu 22.04, you just have to install the following packages:
 
 ```bash
 sudo apt install -y cmake llvm libclang-dev
@@ -25,6 +28,8 @@ cmake --build .
 ```
 
 In Visual Studio Code, the CMake extension should be automatically able to configure this project, and all integration should work out-of-the-box.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/hhkit/clang-tool-template?quickstart=1)
 
 ## Resources
 The LLVM tutorials are always a good place to start, albeit sometimes out of date.
