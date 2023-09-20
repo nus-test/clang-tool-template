@@ -15,7 +15,6 @@
 static llvm::cl::OptionCategory MyToolCategory("my-tool options");
 static llvm::cl::extrahelp
     CommonHelp(clang::tooling::CommonOptionsParser::HelpMessage);
-static llvm::cl::extrahelp MoreHelp("\nMore help text...\n");
 
 int main(int argc, const char **argv) {
   using namespace clang::tooling;
