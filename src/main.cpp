@@ -19,7 +19,6 @@ static llvm::cl::extrahelp MoreHelp("\nMore help text...\n");
 
 int main(int argc, const char **argv) {
   using namespace clang::tooling;
-  using namespace llvm;
 
   // CommonOptionsParser constructor will parse arguments and create a
   // CompilationDatabase.  In case of error it will terminate the program.
@@ -34,18 +33,16 @@ int main(int argc, const char **argv) {
                  OptionsParser->getSourcePathList());
 
   enum class Mode {
-    Setup,
     Match,
     Rewrite,
   };
 
-  auto Mode = Mode::Match;
+  /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    Change this variable to determine what kind of tool you want to generate!
+  */
+  auto ToolMode = Mode::Match;
 
-  switch (Mode) {
-  case Mode::Setup: {
-    return Tool.run(newFrontendActionFactory<clang::SyntaxOnlyAction>().get());
-  }
-
+  switch (ToolMode) {
   case Mode::Match: {
     using namespace clang::ast_matchers;
 
