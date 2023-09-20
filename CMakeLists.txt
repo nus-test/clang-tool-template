@@ -1,12 +1,9 @@
 cmake_minimum_required(VERSION 3.12) 
-project(mytool LANGUAGES C CXX)
-
 set (TOOL_NAME my-tool)
+project(${TOOL_NAME} LANGUAGES C CXX)
 
 find_package(LLVM REQUIRED)
 find_package(Clang REQUIRED)
-
-include(AddLLVM)
 
 include_directories(include)
 include_directories(${LLVM_INCLUDE_DIRS})
@@ -15,5 +12,10 @@ include_directories(${CLANG_INCLUDE_DIRS})
 add_definitions(${LLVM_DEFINITIONS})
 add_definitions(${CLANG_DEFINITIONS})
 
-add_executable(${TOOL_NAME} src/my-tool.cpp)
-target_link_libraries(${TOOL_NAME} clangBasic clangTooling)
+add_executable(${TOOL_NAME}
+    src/main.cpp 
+    src/MatchPrinter.cpp
+    src/RewritePrinter.cpp
+    )
+target_link_libraries(${TOOL_NAME} clangBasic clangTooling clangTransformer)
+target_compile_features(${TOOL_NAME} PRIVATE cxx_std_20)
