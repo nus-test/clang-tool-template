@@ -27,9 +27,13 @@ cmake ..
 cmake --build .
 ```
 
+The name of the tool can be changed in CMakeLists.txt:2.
+
 In Visual Studio Code, the CMake extension should be automatically able to configure this project, and all integration should work out-of-the-box.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/hhkit/clang-tool-template?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nus-test/clang-tool-template?quickstart=1)
+
+⚠️ *There is currently no support for Windows-based compilation with CMake. Please [create an issue](https://github.com/nus-test/clang-tool-template/issues/new/choose) if you require it, and it should be resolved within a day.*
 
 ## Resources
 The LLVM tutorials are always a good place to start, albeit sometimes out of date.
