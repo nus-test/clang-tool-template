@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12) 
+cmake_minimum_required(VERSION 3.15) 
 set (TOOL_NAME my-tool)
 project(${TOOL_NAME} LANGUAGES C CXX)
 
@@ -19,3 +19,7 @@ add_executable(${TOOL_NAME}
     )
 target_link_libraries(${TOOL_NAME} clangBasic clangTooling clangTransformer)
 target_compile_features(${TOOL_NAME} PRIVATE cxx_std_20)
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+target_compile_options(${TOOL_NAME} PRIVATE "-Wno-deprecated-enum-enum-conversion")
+endif()
